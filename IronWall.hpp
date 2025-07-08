@@ -1,5 +1,11 @@
 #pragma once
 
+#include <SFML/Graphics.hpp>
+
+#include <vector>
+#include <cstdint>
+#include <memory>
+
 #include "Entity.hpp"
 
 class IronWall : public Entity
@@ -7,21 +13,12 @@ class IronWall : public Entity
 
 public:
 
-	IronWall(float p_X, float p_Y, FrameListCollection& p_FrameList, int16_t p_RenderPriority = 0)
-	{
-		m_RenderPriority = p_RenderPriority;
-		m_FrameList = p_FrameList;
-		setPositionOfEntity(p_X, p_Y);
-	}
+	IronWall(float p_X, float p_Y, FrameListCollection& p_FrameList, int16_t p_RenderPriority);
 
-	void doRoutine() override
-	{
+	void doRoutine() override;
 
-	}
+	void doAnimationRoutine() override;
 
-	void doAnimationRoutine() override 
-	{
-
-	}
+	~IronWall() override = default;
 
 };

@@ -22,45 +22,20 @@ public:
 	virtual void doRoutine() = 0;
 	virtual void doAnimationRoutine() = 0;
 
-	const auto& seeRenderPriority()
-	{
-		return m_RenderPriority;
-	}
+	const int16_t seeRenderPriority() const;
 
-	void setFrameList(FrameListCollection& p_FrameList)
-	{
-		m_FrameList = p_FrameList;
-	}
+	void setFrameList(FrameListCollection& p_FrameList);
 
-	int16_t getCurrentFrameNumber() const
-	{
-		return m_CurrentFrameNumber;
-	}
+	int16_t getCurrentFrameNumber() const;
 
-	const auto& getFrameList()
-	{
-		return m_FrameList;
-	}
+	const FrameListCollection& getFrameList() const;
 
-	void setPositionOfEntity(float p_X, float p_Y)
-	{
-		for (auto& current_frame : m_FrameList)
-		{
-			current_frame->setPosition(p_X, p_Y);
-		}
-	}
+	void setPositionOfEntity(float p_X, float p_Y);
 
-	void moveEntity(float p_X, float p_Y)
-	{
-		for (auto& current_frame : m_FrameList)
-		{
-			current_frame->move(p_X, p_Y);
-		}
-	}
+	void moveEntity(float p_X, float p_Y);
 
-	const auto& seeCurrentFrame()
-	{
-		return m_FrameList[m_CurrentFrameNumber];
-	}
+	const std::shared_ptr<sf::Sprite>& seeCurrentFrame();
+
+	virtual ~Entity() = default;
 
 };
