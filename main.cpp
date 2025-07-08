@@ -1,13 +1,11 @@
-#include <SFML/Graphics.hpp>
+import stl;
+import sfml;
 
-#include <vector>
-#include <memory>
-
-#include "Entity.hpp"
-#include "Core.hpp"
-#include "Scene.hpp"
-#include "Player.hpp"
-#include "IronWall.hpp"
+import Entity;
+import Core;
+import Scene;
+import Player;
+import IronWall;
 
 using FrameListCollection = std::vector<std::shared_ptr<sf::Sprite>>;
 using SceneCollection = std::vector<std::shared_ptr<Entity>>;

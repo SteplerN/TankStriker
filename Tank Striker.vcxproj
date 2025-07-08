@@ -103,7 +103,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp23</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -111,7 +111,6 @@
       <AdditionalLibraryDirectories>D:\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
-      <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,13 +128,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="IronWall.cpp" />
+    <ClCompile Include="Core.ixx" />
+    <ClCompile Include="Entity.ixx" />
+    <ClCompile Include="Enums.ixx" />
+    <ClCompile Include="IronWall.ixx" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="MainWindow.ixx" />
+    <ClCompile Include="Player.ixx" />
+    <ClCompile Include="Scene.ixx" />
+    <ClCompile Include="sfml.ixx" />
+    <ClCompile Include="stl.ixx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -149,15 +151,6 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Core.hpp" />
-    <ClInclude Include="Entity.hpp" />
-    <ClInclude Include="Enums.hpp" />
-    <ClInclude Include="IronWall.hpp" />
-    <ClInclude Include="MainWindow.hpp" />
-    <ClInclude Include="Player.hpp" />
-    <ClInclude Include="Scene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

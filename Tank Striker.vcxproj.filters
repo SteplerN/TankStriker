@@ -18,23 +18,32 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Core.ixx">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="Core.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Entity.ixx">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="IronWall.ixx">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="IronWall.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Enums.ixx">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Player.ixx">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Scene.ixx">
+      <Filter>Файлы заголовков</Filter>
+    </ClCompile>
+    <ClCompile Include="sfml.ixx">
+      <Filter>Файлы заголовков</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWindow.ixx">
+      <Filter>Файлы заголовков</Filter>
+    </ClCompile>
+    <ClCompile Include="stl.ixx">
+      <Filter>Файлы заголовков</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -49,28 +58,5 @@
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-2.dll" />
     <None Include="sfml-window-d-2.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Core.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Enums.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MainWindow.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="IronWall.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
