@@ -1,3 +1,5 @@
+export module main;
+
 import stl;
 import sfml;
 
@@ -10,7 +12,7 @@ import IronWall;
 using FrameListCollection = std::vector<std::shared_ptr<sf::Sprite>>;
 using SceneCollection = std::vector<std::shared_ptr<Entity>>;
 
-int main()
+export int main()
 {
 	/////////////////////////// Sprite Initialization Block Start ///////////////////////////
 

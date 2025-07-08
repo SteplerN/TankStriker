@@ -132,7 +132,7 @@
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Enums.ixx" />
     <ClCompile Include="IronWall.ixx" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.ixx" />
     <ClCompile Include="MainWindow.ixx" />
     <ClCompile Include="Player.ixx" />
     <ClCompile Include="Scene.ixx" />
