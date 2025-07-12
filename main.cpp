@@ -100,7 +100,7 @@ int main()
 
 	scene->addToTheScene(blue_square);
 	scene->addToTheScene(player);
-	//scene->addToTheScene(iron_wall_001);
+	scene->addToTheScene(iron_wall_001);
 
 	core.addTheScene(scene);
 	core.runTheGame();
