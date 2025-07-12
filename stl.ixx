@@ -1,11 +1,13 @@
+module;
+
+#include <vector>
+#include <memory>
+#include <algorithm>
+#include <cstdint>
+
 export module stl;
 
-// Export modules here ONLY in the alphabet order!!!
-
+export import <vector>;
+export import <memory>;
 export import <algorithm>;
 export import <cstdint>;
-export import <memory>;
-export import <numeric>;
-export import <utility>;
-export import <vector>;
-export import <xutility>;

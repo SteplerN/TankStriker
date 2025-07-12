@@ -1,15 +1,9 @@
 export module Enums;
 
-export enum class Direction
+export enum Direction
 {
 	Forward,
 	Backward,
 	Left,
 	Right
-};
-
-export enum class AnimationType
-{
-	Looped,
-	Finished
 };
