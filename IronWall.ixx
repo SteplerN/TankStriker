@@ -2,10 +2,9 @@ export module IronWall;
 
 import stl;
 import sfml;
+import Usings;
 
 import Entity;
-
-using FrameListCollection = std::vector<std::shared_ptr<sf::Sprite>>;
 
 export class IronWall : public Entity
 {
@@ -19,9 +18,9 @@ public:
 		setPositionOfEntity(p_X, p_Y);
 	}
 
-	void doRoutine() {}
+	void doRoutine() override {}
 
-	void doAnimationRoutine() {}
+	void doAnimationRoutine() override {}
 
 	~IronWall() override = default;
 

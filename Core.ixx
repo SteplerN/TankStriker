@@ -4,20 +4,23 @@ import stl;
 import sfml;
 
 import Scene;
-import MainWindow;
+import Globals;
 import Entity;
+
+using CoreCollection = std::vector<std::shared_ptr<Scene>>;
 
 export class Core
 {
-
-	Scene& m_Scene;
+	
+	CoreCollection m_Scenes;
+	int16_t m_CurrentSceneNumber = 0;
 
 	static bool compareEntityRenderPriorities(std::shared_ptr<Entity>& p1, std::shared_ptr<Entity>& p2)
 	{
 		return p1->seeRenderPriority() < p2->seeRenderPriority();
 	}
 
-	static void drawCopyScene(std::vector<std::shared_ptr<Entity>>& p_EntityList, sf::RenderWindow& p_Window)
+	static void drawTheScene(std::vector<std::shared_ptr<Entity>>& p_EntityList, sf::RenderWindow& p_Window)
 	{
 		for (auto& current_object : p_EntityList)
 		{
@@ -27,7 +30,10 @@ export class Core
 
 public:
 
-	Core(Scene& p_Scene) : m_Scene(p_Scene) {}
+	void addTheScene(std::shared_ptr<Scene> p_Scene)
+	{
+		m_Scenes.push_back(p_Scene);
+	}
 
 	void runTheGame()
 	{
@@ -43,16 +49,16 @@ public:
 				}
 			}
 
-			auto copy = m_Scene.seeTheSceneList();
-			std::sort(copy.begin(), copy.end(), compareEntityRenderPriorities);
+			auto& scene_list = (m_Scenes[m_CurrentSceneNumber])->seeTheSceneList();
+			std::sort((*scene_list).begin(), (*scene_list).end(), compareEntityRenderPriorities);
 
-			for (auto& current_entity : m_Scene.seeTheSceneList())
+			for (auto& current_entity : *(m_Scenes[m_CurrentSceneNumber])->seeTheSceneList())
 			{
 				current_entity->doRoutine();
 			}
 
 			g_MainWindow.clear(sf::Color::White);
-			drawCopyScene(copy, g_MainWindow);
+			m_Scenes[m_CurrentSceneNumber]->drawTheScene(g_MainWindow);
 			g_MainWindow.display();
 
 		}

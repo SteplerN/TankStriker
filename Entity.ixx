@@ -3,7 +3,7 @@ export module Entity;
 import stl;
 import sfml;
 
-using FrameListCollection = std::vector<std::shared_ptr<sf::Sprite>>;
+import Usings;
 
 export class Entity
 {
