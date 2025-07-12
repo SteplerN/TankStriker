@@ -1,62 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Исходные файлы">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Файлы заголовков">
+    <Filter Include="include">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="include\core">
+      <UniqueIdentifier>{74ec2a5b-ffa6-4a6b-976f-136009ebba07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{40d70580-5746-4ed9-a7f5-99abb7bb5969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\lib_ixx">
+      <UniqueIdentifier>{32ae5287-771b-4126-ab9c-f69c64e1f258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\usings_and_enums">
+      <UniqueIdentifier>{aa9719aa-d949-4743-8c5a-5c889ac2aa0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\objects">
+      <UniqueIdentifier>{3eb1cb4d-addb-43d4-94ca-48ce5867c986}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\objects\statics">
+      <UniqueIdentifier>{5eccbce1-1516-47e6-827e-09d68cdfaed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\objects\animations">
+      <UniqueIdentifier>{46e4f7d9-3fb0-4b1b-afa9-1d6ff39151df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.ixx">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="Core.ixx">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>include\core</Filter>
     </ClCompile>
-    <ClCompile Include="Entity.ixx">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
-    <ClCompile Include="IronWall.ixx">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
-    <ClCompile Include="Enums.ixx">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.ixx">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.ixx">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
-    <ClCompile Include="sfml.ixx">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWindow.ixx">
-      <Filter>Файлы заголовков</Filter>
+    <ClCompile Include="Globals.ixx">
+      <Filter>include\core</Filter>
     </ClCompile>
     <ClCompile Include="stl.ixx">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>include\lib_ixx</Filter>
+    </ClCompile>
+    <ClCompile Include="sfml.ixx">
+      <Filter>include\lib_ixx</Filter>
+    </ClCompile>
+    <ClCompile Include="Usings.ixx">
+      <Filter>include\usings_and_enums</Filter>
+    </ClCompile>
+    <ClCompile Include="Enums.ixx">
+      <Filter>include\usings_and_enums</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.ixx">
+      <Filter>include\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.ixx">
+      <Filter>include\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.ixx">
+      <Filter>include\objects\animations</Filter>
+    </ClCompile>
+    <ClCompile Include="IronWall.ixx">
+      <Filter>include\objects\statics</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.ixx">
+      <Filter>include\objects\statics</Filter>
+    </ClCompile>
+    <ClCompile Include="FinishedAnimation.ixx">
+      <Filter>include\objects\animations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="openal32.dll" />
-    <None Include="sfml-audio-2.dll" />
-    <None Include="sfml-audio-d-2.dll" />
-    <None Include="sfml-graphics-2.dll" />
-    <None Include="sfml-graphics-d-2.dll" />
-    <None Include="sfml-network-d-2.dll" />
-    <None Include="sfml-network-2.dll" />
-    <None Include="sfml-system-2.dll" />
-    <None Include="sfml-system-d-2.dll" />
-    <None Include="sfml-window-2.dll" />
-    <None Include="sfml-window-d-2.dll" />
+    <None Include="sfml-graphics-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="openal32.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-audio-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-network-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-network-d-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-graphics-d-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-system-d-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-window-d-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-system-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-audio-d-2.dll">
+      <Filter>lib</Filter>
+    </None>
+    <None Include="sfml-window-2.dll">
+      <Filter>lib</Filter>
+    </None>
   </ItemGroup>
 </Project>

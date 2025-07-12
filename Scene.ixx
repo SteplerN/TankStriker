@@ -3,23 +3,24 @@ export module Scene;
 import stl;
 import sfml;
 
+import Usings;
 import Entity;
+import Player;
 
-using SceneCollection = std::vector<std::shared_ptr<Entity>>;
-using FrameListCollection = std::vector<std::shared_ptr<sf::Sprite>>;
+using SceneCollection = std::shared_ptr<std::vector<std::shared_ptr<Entity>>>;
 
 export class Scene
 {
 
-	SceneCollection m_EntityList;
+	SceneCollection& m_EntityList;
 
 public:
 
-	Scene(SceneCollection p_EntityList) : m_EntityList(p_EntityList) {}
+	Scene(SceneCollection& p_EntityList) : m_EntityList(p_EntityList) {}
 
-	void addToTheScene(std::shared_ptr<Entity>& p_Entity)
+	void addToTheScene(std::shared_ptr<Entity> p_Entity)
 	{
-		m_EntityList.push_back(p_Entity);
+		m_EntityList->push_back(p_Entity);
 	}
 
 	const SceneCollection& seeTheSceneList() const
@@ -34,7 +35,7 @@ public:
 
 	void drawTheScene(sf::RenderWindow& p_Window)
 	{
-		for (auto& current_object : m_EntityList)
+		for (auto& current_object : *m_EntityList)
 		{
 			p_Window.draw(*(current_object->seeCurrentFrame()));
 		}

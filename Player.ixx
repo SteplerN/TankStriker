@@ -1,13 +1,11 @@
 export module Player;
 
 import stl;
+import sfml;
+import Usings;
 
 import Entity;
 import Enums;
-
-import sfml;
-
-using FrameListCollection = std::vector<std::shared_ptr<sf::Sprite>>;
 
 export class Player : public Entity
 {
@@ -32,7 +30,7 @@ public:
 
 	void doAnimationRoutine()
 	{
-		m_CurrentFrameNumber = m_Direction;
+		m_CurrentFrameNumber = static_cast<int16_t>(m_Direction);
 	}
 
 	void doRoutine()
@@ -57,7 +55,6 @@ public:
 			moveEntity(1.f, 0.f);
 			m_Direction = Direction::Right;
 		}
-
 		doAnimationRoutine();
 	}
 
