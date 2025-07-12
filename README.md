@@ -6,6 +6,6 @@ If you want to update code for yourself, use these tools:
 
 C++ 23+
 SFML 2.5.1
-MSVC Compiler(If sou use GCC/Lang, then change .dll lib files for your complier)
+MSVC Compiler(If sou use GCC/CLang, then change .dll lib files for your complier)
 
 И помните: Слава C++, Python'исты тоже гуманитарии!
