@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.ixx" />
+    <ClCompile Include="collision.ixx" />
     <ClCompile Include="Core.ixx" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Enums.ixx" />
