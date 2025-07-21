@@ -1,6 +1,6 @@
 export module Animation;
 
-import stl;
+import std;
 import sfml;
 
 import Usings;
@@ -22,15 +22,13 @@ protected:
 	bool m_IsAnimationPlaying = false;
 	bool m_IsDisappearing = false;
 
+	void doAnimationRoutine() override {}
+
 public:
 
 	virtual void finishIterationOfAnimation() = 0;
 
-	Animation() = default;
-
-	void doAnimationRoutine() override {}
-
-	void doRoutine() override
+	void doRoutine([[maybe_unused]] float p_Time, [[maybe_unused]] float p_DeltaTime) override
 	{
 		doAnimationRoutine();
 	}

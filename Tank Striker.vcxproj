@@ -103,7 +103,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>D:\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard>stdcpp23</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -129,18 +129,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.ixx" />
-    <ClCompile Include="collision.ixx" />
     <ClCompile Include="Core.ixx" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Enums.ixx" />
     <ClCompile Include="FinishedAnimation.ixx" />
+    <ClCompile Include="HitBox.ixx" />
     <ClCompile Include="IronWall.ixx" />
+    <ClCompile Include="KillProgram.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Globals.ixx" />
     <ClCompile Include="Player.ixx" />
     <ClCompile Include="Scene.ixx" />
     <ClCompile Include="sfml.ixx" />
-    <ClCompile Include="stl.ixx" />
     <ClCompile Include="Usings.ixx" />
   </ItemGroup>
   <ItemGroup>

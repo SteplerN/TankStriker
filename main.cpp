@@ -1,4 +1,4 @@
-import stl;
+import std;
 import sfml;
 
 import Usings;
@@ -8,6 +8,8 @@ import Scene;
 import Player;
 import IronWall;
 import FinishedAnimation;
+import HitBox;
+import Enums;
 
 using SceneCollection = std::vector<std::shared_ptr<Entity>>;
 
@@ -41,6 +43,27 @@ int main()
 		blue_tank_left,
 		blue_tank_right
 	};
+
+	HitBoxCollection blue_tank_hitbox_list =
+	{
+		std::vector<std::shared_ptr<HitBox>>
+		{
+			std::make_shared<HitBox>(HitBoxType::Collision, 60.f, 60.f)
+		},
+		std::vector<std::shared_ptr<HitBox>>
+		{
+			std::make_shared<HitBox>(HitBoxType::Collision, 60.f, 60.f)
+		},
+		std::vector<std::shared_ptr<HitBox>>
+		{
+			std::make_shared<HitBox>(HitBoxType::Collision, 60.f, 60.f)
+		},
+		std::vector<std::shared_ptr<HitBox>>
+		{
+			std::make_shared<HitBox>(HitBoxType::Collision, 60.f, 60.f),
+		}
+	};
+
 	// Blue Tank End
 
 	// Iron Wall Start
@@ -83,26 +106,28 @@ int main()
 		std::make_shared<sf::Time>(sf::seconds(1)),
 		std::make_shared<sf::Time>(sf::seconds(1))
 	};
-
+	
 	// Blue Square End
 
 	/////////////////////////// Sprite Initialization Block End ///////////////////////////
 
-	const auto sp_x  = static_cast<float>(sf::VideoMode::getDesktopMode().width / 2);
-	const auto sp_y = static_cast<float>(sf::VideoMode::getDesktopMode().height / 2);
-
-	auto player = std::make_shared<Player>(sp_x, sp_y, blue_tank_frame_list, int16_t(1));
-	auto iron_wall_001 = std::make_shared<IronWall>(500.f, 500.f, iron_wall_frame_list, int16_t(2));
-	auto blue_square = std::make_shared<FinishedAnimation>(600.f, 600.f, blue_square_frame_list, blue_square_time_list, int16_t(15), false);
+	auto player = std::make_shared<Player>
+		(700.f, 700.f, std::move(blue_tank_frame_list), std::move(blue_tank_hitbox_list), int16_t(1));
+	
+	auto iron_wall_001 = std::make_shared<IronWall>
+		(500.f, 500.f, std::move(iron_wall_frame_list), int16_t(2));
+	auto blue_square = std::make_shared<FinishedAnimation>
+		(600.f, 600.f, std::move(blue_square_frame_list), std::move(blue_square_time_list), int16_t(15), false);
+	
 
 	auto entity_list = std::make_shared<SceneCollection>();
-	auto scene = std::make_shared<Scene>(entity_list);
+	auto scene = std::make_shared<Scene>(std::move(entity_list));
 
-	scene->addToTheScene(blue_square);
-	scene->addToTheScene(player);
-	scene->addToTheScene(iron_wall_001);
+	scene->addToTheScene(std::move(blue_square));
+	scene->addToTheScene(std::move(player));
+	scene->addToTheScene(std::move(iron_wall_001));
 
-	core.addTheScene(scene);
+	core.addTheScene(std::move(scene));
 	core.runTheGame();
 
 	return 0;

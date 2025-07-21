@@ -1,9 +1,10 @@
 export module Entity;
 
-import stl;
+import std;
 import sfml;
 
 import Usings;
+import Enums;
 
 export class Entity
 {
@@ -11,13 +12,16 @@ export class Entity
 protected:
 
 	FrameListCollection m_FrameList;
+	HitBoxCollection m_HitBoxList;
+
 	int16_t m_CurrentFrameNumber = 0;
 	int16_t m_RenderPriority = 0;
 
+	virtual void doAnimationRoutine() = 0;
+
 public:
 
-	virtual void doRoutine() = 0;
-	virtual void doAnimationRoutine() = 0;
+	virtual void doRoutine(float p_Time, float p_DeltaTime) = 0;
 
 	const int16_t seeRenderPriority() const
 	{
@@ -29,7 +33,7 @@ public:
 		m_FrameList = p_FrameList;
 	}
 
-	int16_t getCurrentFrameNumber() const
+	int16_t getCurrentFrameNumber() const noexcept
 	{
 		return m_CurrentFrameNumber;
 	}
@@ -39,11 +43,30 @@ public:
 		return m_FrameList;
 	}
 
+	std::optional<std::vector<std::shared_ptr<HitBox>>> getCurrentHitBoxList() const
+	{
+		if (!m_HitBoxList.empty()) 
+			return m_HitBoxList[m_CurrentFrameNumber]; 
+		else
+			return std::nullopt;
+	}
+
 	void setPositionOfEntity(float p_X, float p_Y)
 	{
 		for (auto& current_frame : m_FrameList)
 		{
 			current_frame->setPosition(p_X, p_Y);
+		}
+
+		if (!m_HitBoxList.empty())
+		{
+			for (auto& current_list : m_HitBoxList)
+			{
+				for (auto& current_hitbox : current_list)
+				{
+					current_hitbox->setPosition(p_X, p_Y);
+				}
+			}
 		}
 	}
 
@@ -52,6 +75,17 @@ public:
 		for (auto& current_frame : m_FrameList)
 		{
 			current_frame->move(p_X, p_Y);
+		}
+
+		if (!m_HitBoxList.empty())
+		{
+			for (auto& current_list : m_HitBoxList)
+			{
+				for (auto& current_hitbox : current_list)
+				{
+					current_hitbox->move(p_X, p_Y);
+				}
+			}
 		}
 	}
 

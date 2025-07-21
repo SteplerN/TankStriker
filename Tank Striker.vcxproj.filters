@@ -14,56 +14,53 @@
     <Filter Include="include\lib_ixx">
       <UniqueIdentifier>{32ae5287-771b-4126-ab9c-f69c64e1f258}</UniqueIdentifier>
     </Filter>
-    <Filter Include="main">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="include\collision">
-      <UniqueIdentifier>{e00d1ef8-8f89-4845-ab62-31bc3e142b8c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include\gameworld">
       <UniqueIdentifier>{e1df00a0-500a-433a-b293-ce3e59db25de}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="include\usings_enums_globals">
-      <UniqueIdentifier>{aa9719aa-d949-4743-8c5a-5c889ac2aa0a}</UniqueIdentifier>
     </Filter>
     <Filter Include="include\gameworld\gameobjects">
       <UniqueIdentifier>{3eb1cb4d-addb-43d4-94ca-48ce5867c986}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\gameworld\gameobjects\animations">
+    <Filter Include="include\additional">
+      <UniqueIdentifier>{aa9719aa-d949-4743-8c5a-5c889ac2aa0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\gameworld\gameobjects\hitbox">
+      <UniqueIdentifier>{d83e658e-d38a-491b-ac3f-f4df93f37ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\gameworld\gameobjects\animation">
       <UniqueIdentifier>{46e4f7d9-3fb0-4b1b-afa9-1d6ff39151df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\gameworld\gameobjects\statics">
+    <Filter Include="include\gameworld\gameobjects\static">
       <UniqueIdentifier>{5eccbce1-1516-47e6-827e-09d68cdfaed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="a_main">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>main</Filter>
-    </ClCompile>
-    <ClCompile Include="stl.ixx">
-      <Filter>include\lib_ixx</Filter>
+      <Filter>a_main</Filter>
     </ClCompile>
     <ClCompile Include="sfml.ixx">
       <Filter>include\lib_ixx</Filter>
     </ClCompile>
     <ClCompile Include="Usings.ixx">
-      <Filter>include\usings_enums_globals</Filter>
+      <Filter>include\additional</Filter>
     </ClCompile>
     <ClCompile Include="Enums.ixx">
-      <Filter>include\usings_enums_globals</Filter>
+      <Filter>include\additional</Filter>
     </ClCompile>
     <ClCompile Include="Animation.ixx">
-      <Filter>include\gameworld\gameobjects\animations</Filter>
+      <Filter>include\gameworld\gameobjects\animation</Filter>
     </ClCompile>
     <ClCompile Include="IronWall.ixx">
-      <Filter>include\gameworld\gameobjects\statics</Filter>
+      <Filter>include\gameworld\gameobjects\static</Filter>
     </ClCompile>
     <ClCompile Include="Player.ixx">
-      <Filter>include\gameworld\gameobjects\statics</Filter>
+      <Filter>include\gameworld\gameobjects\static</Filter>
     </ClCompile>
     <ClCompile Include="FinishedAnimation.ixx">
-      <Filter>include\gameworld\gameobjects\animations</Filter>
+      <Filter>include\gameworld\gameobjects\animation</Filter>
     </ClCompile>
     <ClCompile Include="Entity.ixx">
       <Filter>include\gameworld</Filter>
@@ -71,14 +68,17 @@
     <ClCompile Include="Scene.ixx">
       <Filter>include\gameworld</Filter>
     </ClCompile>
-    <ClCompile Include="collision.ixx">
-      <Filter>include\collision</Filter>
-    </ClCompile>
     <ClCompile Include="Globals.ixx">
-      <Filter>include\usings_enums_globals</Filter>
+      <Filter>include\additional</Filter>
     </ClCompile>
     <ClCompile Include="Core.ixx">
       <Filter>include\core</Filter>
+    </ClCompile>
+    <ClCompile Include="KillProgram.ixx">
+      <Filter>include\core</Filter>
+    </ClCompile>
+    <ClCompile Include="HitBox.ixx">
+      <Filter>include\gameworld\gameobjects\hitbox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

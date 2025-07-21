@@ -1,61 +1,79 @@
 export module Player;
 
-import stl;
+import std;
 import sfml;
-import Usings;
 
+import Usings;
 import Entity;
 import Enums;
+import Globals;
 
 export class Player : public Entity
 {
+
+protected:
+
+	int32_t m_MovementSpeed = 1;
 
 	Direction m_Direction = Direction::Forward;
 
 public:
 
-	Player(float p_X, float p_Y, FrameListCollection& p_FrameList, int16_t p_RenderPriority)
+	Player(float p_X, float p_Y, FrameListCollection&& p_FrameList, 
+		HitBoxCollection&& p_HitBoxList, int16_t p_RenderPriority)
 	{
 		m_RenderPriority = p_RenderPriority;
 		m_FrameList = p_FrameList;
+		m_HitBoxList = p_HitBoxList;
 		setPositionOfEntity(p_X, p_Y);
 
-		m_FrameList[1]->move(0, 70);
-		m_FrameList[3]->move(70, 0);
+		m_FrameList[1]->move(0, 60);
+		m_FrameList[3]->move(45, 0);
+		m_FrameList[2]->move(-47, 60);
+		m_FrameList[3]->move(-45, 60);
 
-		m_FrameList[2]->move(-70, 70);
-		m_FrameList[3]->move(-70, 70);
-
+		m_HitBoxList[0][0]->move(0, 60);
+		m_HitBoxList[1][0]->move(0, 60);
+		m_HitBoxList[2][0]->move(0, 60);
+		m_HitBoxList[3][0]->move(0, 60);
 	}
 
-	void doAnimationRoutine()
+	void doAnimationRoutine() override
 	{
 		m_CurrentFrameNumber = static_cast<int16_t>(m_Direction);
 	}
 
-	void doRoutine()
+	void doRoutine([[maybe_unused]] float p_Time, [[maybe_unused]] float p_DeltaTime) override
 	{
+		sf::Vector2f movement(0.f, 0.f);
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			moveEntity(0.f, -1.f);
+			//movement.y -= m_MovementSpeed * p_DeltaTime / g_MovementCoef;
 			m_Direction = Direction::Forward;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			moveEntity(0.f, 1.f);
+			//movement.y += m_MovementSpeed * p_DeltaTime / g_MovementCoef;
 			m_Direction = Direction::Backward;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			moveEntity(-1.f, 0.f);
+			//movement.x -= m_MovementSpeed * p_DeltaTime / g_MovementCoef;
 			m_Direction = Direction::Left;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			moveEntity(1.f, 0.f);
+			//movement.x += m_MovementSpeed * p_DeltaTime / g_MovementCoef;
 			m_Direction = Direction::Right;
 		}
+		moveEntity(movement.x, movement.y);
 		doAnimationRoutine();
+	}
+
+	void changeMovementSpeed(int16_t p_MovementSpeed)
+	{
+		m_MovementSpeed = p_MovementSpeed;
 	}
 
 	~Player() override = default;

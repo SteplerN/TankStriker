@@ -1,19 +1,26 @@
 export module Core;
 
-import stl;
+import std;
 import sfml;
 
 import Scene;
 import Globals;
 import Entity;
+import KillProgram;
+import Globals;
 
 using CoreCollection = std::vector<std::shared_ptr<Scene>>;
 
 export class Core
 {
-	
+
+protected:
+
 	CoreCollection m_Scenes;
 	int16_t m_CurrentSceneNumber = 0;
+
+	sf::Clock s_Time;
+	sf::Clock s_DeltaTime;
 
 	static bool compareEntityRenderPriorities(std::shared_ptr<Entity>& p1, std::shared_ptr<Entity>& p2)
 	{
@@ -30,9 +37,9 @@ export class Core
 
 public:
 
-	void addTheScene(std::shared_ptr<Scene> p_Scene)
+	void addTheScene(std::shared_ptr<Scene>&& p_Scene)
 	{
-		m_Scenes.push_back(p_Scene);
+		m_Scenes.push_back(std::move(p_Scene));
 	}
 
 	void runTheGame()
@@ -49,12 +56,15 @@ public:
 				}
 			}
 
-			auto& scene_list = (m_Scenes[m_CurrentSceneNumber])->seeTheSceneList();
-			std::sort((*scene_list).begin(), (*scene_list).end(), compareEntityRenderPriorities);
+			auto t = static_cast<float>(s_Time.getElapsedTime().asMicroseconds());
+			auto dt = static_cast<float>(s_DeltaTime.restart().asMicroseconds());
 
-			for (auto& current_entity : *(m_Scenes[m_CurrentSceneNumber])->seeTheSceneList())
+			auto scene_list = (m_Scenes[m_CurrentSceneNumber])->seeTheSceneList();
+			std::sort(scene_list->begin(), scene_list->end(), compareEntityRenderPriorities);
+
+			for (auto& current_entity : *scene_list)
 			{
-				current_entity->doRoutine();
+				current_entity->doRoutine(t, dt);
 			}
 
 			g_MainWindow.clear(sf::Color::White);
