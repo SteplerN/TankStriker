@@ -13,18 +13,17 @@ export class Player : public Entity
 
 protected:
 
-	int32_t m_MovementSpeed = 1;
-
+	int32_t m_MovementSpeed = 10;
 	Direction m_Direction = Direction::Forward;
 
 public:
 
-	Player(float p_X, float p_Y, FrameListCollection&& p_FrameList, 
-		HitBoxCollection&& p_HitBoxList, int16_t p_RenderPriority)
+	Player(float p_X, float p_Y, FrameListCollection& p_FrameList, 
+		HitBoxCollection& p_HitBoxList, int32_t p_RenderPriority)
 	{
-		m_RenderPriority = p_RenderPriority;
-		m_FrameList = p_FrameList;
-		m_HitBoxList = p_HitBoxList;
+		m_RenderPriority = std::move(p_RenderPriority);
+		m_FrameList = std::move(p_FrameList);
+		m_HitBoxList = std::move(p_HitBoxList);
 		setPositionOfEntity(p_X, p_Y);
 
 		m_FrameList[1]->move(0, 60);
@@ -38,9 +37,9 @@ public:
 		m_HitBoxList[3][0]->move(0, 60);
 	}
 
-	void doAnimationRoutine() override
+	void doAnimationRoutine()
 	{
-		m_CurrentFrameNumber = static_cast<int16_t>(m_Direction);
+		m_CurrentFrameNumber = static_cast<int32_t>(m_Direction);
 	}
 
 	void doRoutine([[maybe_unused]] float p_Time, [[maybe_unused]] float p_DeltaTime) override
@@ -49,29 +48,29 @@ public:
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
-			//movement.y -= m_MovementSpeed * p_DeltaTime / g_MovementCoef;
+			movement.y -= m_MovementSpeed * p_DeltaTime / g_MillisecondsInSeconds;
 			m_Direction = Direction::Forward;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
-			//movement.y += m_MovementSpeed * p_DeltaTime / g_MovementCoef;
+			movement.y += m_MovementSpeed * p_DeltaTime / g_MillisecondsInSeconds;
 			m_Direction = Direction::Backward;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
-			//movement.x -= m_MovementSpeed * p_DeltaTime / g_MovementCoef;
+			movement.x -= m_MovementSpeed * p_DeltaTime / g_MillisecondsInSeconds;
 			m_Direction = Direction::Left;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
-			//movement.x += m_MovementSpeed * p_DeltaTime / g_MovementCoef;
+			movement.x += m_MovementSpeed * p_DeltaTime / g_MillisecondsInSeconds;
 			m_Direction = Direction::Right;
 		}
 		moveEntity(movement.x, movement.y);
 		doAnimationRoutine();
 	}
 
-	void changeMovementSpeed(int16_t p_MovementSpeed)
+	void changeMovementSpeed(int32_t p_MovementSpeed)
 	{
 		m_MovementSpeed = p_MovementSpeed;
 	}

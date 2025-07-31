@@ -23,5 +23,6 @@ export enum class AnimationType
 export enum class HitBoxType
 {
 	Collision,
-	Damagable
+	Damagable,
+	Clickable
 };

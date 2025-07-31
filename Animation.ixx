@@ -17,12 +17,12 @@ protected:
 	sf::Clock m_TimeFromStart;
 	sf::Clock m_TimeFromCurrentFrameStartedPlaying;
 
-	int16_t m_HowManyTimesPlayed = 0;
+	int32_t m_HowManyTimesPlayed = 0;
 
 	bool m_IsAnimationPlaying = false;
 	bool m_IsDisappearing = false;
 
-	void doAnimationRoutine() override {}
+	virtual void doAnimationRoutine() = 0;
 
 public:
 

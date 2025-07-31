@@ -5,9 +5,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="include\core">
-      <UniqueIdentifier>{74ec2a5b-ffa6-4a6b-976f-136009ebba07}</UniqueIdentifier>
-    </Filter>
     <Filter Include="lib">
       <UniqueIdentifier>{40d70580-5746-4ed9-a7f5-99abb7bb5969}</UniqueIdentifier>
     </Filter>
@@ -23,9 +20,6 @@
     <Filter Include="include\additional">
       <UniqueIdentifier>{aa9719aa-d949-4743-8c5a-5c889ac2aa0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\gameworld\gameobjects\hitbox">
-      <UniqueIdentifier>{d83e658e-d38a-491b-ac3f-f4df93f37ab3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include\gameworld\gameobjects\animation">
       <UniqueIdentifier>{46e4f7d9-3fb0-4b1b-afa9-1d6ff39151df}</UniqueIdentifier>
     </Filter>
@@ -35,6 +29,21 @@
     <Filter Include="a_main">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include\gameworld\gameobjects\base">
+      <UniqueIdentifier>{4ce34a7b-95f1-4cfe-aab8-b3e7d8b3e46f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\gameworld\gameobjects\static\Player">
+      <UniqueIdentifier>{20acb8d8-09c7-4eec-b5dc-5fb5f1df2cc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\system">
+      <UniqueIdentifier>{74ec2a5b-ffa6-4a6b-976f-136009ebba07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\system\Core">
+      <UniqueIdentifier>{502457eb-0949-40e1-9c55-c39eb0a0ab9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\gameworld\gameobjects\static\IronWall">
+      <UniqueIdentifier>{718499dc-a6b6-4ac4-8e20-005cfb48859e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,32 +62,50 @@
     <ClCompile Include="Animation.ixx">
       <Filter>include\gameworld\gameobjects\animation</Filter>
     </ClCompile>
-    <ClCompile Include="IronWall.ixx">
-      <Filter>include\gameworld\gameobjects\static</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.ixx">
-      <Filter>include\gameworld\gameobjects\static</Filter>
-    </ClCompile>
     <ClCompile Include="FinishedAnimation.ixx">
       <Filter>include\gameworld\gameobjects\animation</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.ixx">
-      <Filter>include\gameworld</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.ixx">
-      <Filter>include\gameworld</Filter>
     </ClCompile>
     <ClCompile Include="Globals.ixx">
       <Filter>include\additional</Filter>
     </ClCompile>
+    <ClCompile Include="Button.ixx">
+      <Filter>include\gameworld\gameobjects\static</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.ixx">
+      <Filter>include\gameworld\gameobjects\base</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.ixx">
+      <Filter>include\gameworld\gameobjects\static\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalTextureLoader.ixx">
+      <Filter>include\system</Filter>
+    </ClCompile>
+    <ClCompile Include="InitList.ixx">
+      <Filter>include\system\Core</Filter>
+    </ClCompile>
     <ClCompile Include="Core.ixx">
-      <Filter>include\core</Filter>
+      <Filter>include\system\Core</Filter>
     </ClCompile>
     <ClCompile Include="KillProgram.ixx">
-      <Filter>include\core</Filter>
+      <Filter>include\system\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Construct.ixx">
+      <Filter>include\system\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstructPlayer.ixx">
+      <Filter>include\gameworld\gameobjects\static\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.ixx">
+      <Filter>include\gameworld\gameobjects\base</Filter>
     </ClCompile>
     <ClCompile Include="HitBox.ixx">
-      <Filter>include\gameworld\gameobjects\hitbox</Filter>
+      <Filter>include\gameworld\gameobjects\base</Filter>
+    </ClCompile>
+    <ClCompile Include="IronWall.ixx">
+      <Filter>include\gameworld\gameobjects\static\IronWall</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstructIronWall.ixx">
+      <Filter>include\gameworld\gameobjects\static\IronWall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

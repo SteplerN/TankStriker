@@ -10,14 +10,13 @@ import Enums;
 export class IronWall : public Entity
 {
 
-	void doAnimationRoutine() override {}
-
 public:
 
-	IronWall(float p_X, float p_Y, FrameListCollection&& p_FrameList, int16_t p_RenderPriority)
+	IronWall(float p_X, float p_Y, FrameListCollection& p_FrameList, HitBoxCollection& p_HitBoxList, int32_t p_RenderPriority)
 	{
-		m_RenderPriority = p_RenderPriority;
-		m_FrameList = p_FrameList;
+		m_RenderPriority = std::move(p_RenderPriority);
+		m_FrameList = std::move(p_FrameList);
+		m_HitBoxList = std::move(p_HitBoxList);
 		setPositionOfEntity(p_X, p_Y);
 	}
 

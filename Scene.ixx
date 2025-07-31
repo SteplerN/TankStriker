@@ -10,22 +10,23 @@ import Player;
 import Enums;
 
 using SceneCollection = std::shared_ptr<std::vector<std::shared_ptr<Entity>>>;
+using SceneValue =std::vector<std::shared_ptr<Entity>>;
 
-export class Scene
+export class Scene final
 {
 
 	SceneCollection m_EntityList;
 
 public:
 
-	Scene(SceneCollection&& p_EntityList) : m_EntityList(std::move(p_EntityList)) {}
+	Scene() : m_EntityList(std::make_shared<SceneValue>()) {}
 
-	void addToTheScene(std::shared_ptr<Entity>&& p_Entity)
+	const SceneCollection& seeTheSceneList() const
 	{
-		m_EntityList->push_back(std::move(p_Entity));
+		return m_EntityList;
 	}
 
-	const auto& seeTheSceneList() const
+	SceneCollection& getTheSceneList()
 	{
 		return m_EntityList;
 	}
@@ -38,12 +39,12 @@ public:
 
 			p_Window.draw(*(current_object->seeCurrentFrame()));
 
-			if (isDebugModeEnabled && current_object->getCurrentHitBoxList().has_value())
+			if constexpr (isDebugModeEnabled && current_object->getCurrentHitBoxList().has_value())
 			{
 
 				for (auto& current_hitbox : current_object->getCurrentHitBoxList().value())
 				{
-					p_Window.draw(*(current_hitbox));
+					p_Window.draw(*current_hitbox);
 				}
 
 			}

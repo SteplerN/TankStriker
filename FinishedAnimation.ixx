@@ -44,7 +44,7 @@ protected:
 public:
 
 	FinishedAnimation(float p_X, float p_Y, FrameListCollection&& p_FrameList,
-		TimeListCollection&& p_TimeList, int16_t p_RenderPriority, bool p_IsDisappearing)
+		TimeListCollection&& p_TimeList, int32_t p_RenderPriority, bool p_IsDisappearing)
 	{
 
 		if (p_IsDisappearing)
@@ -70,7 +70,7 @@ public:
 
 		if (m_IsDisappearing)
 		{
-			m_CurrentFrameNumber = static_cast<int16_t>(m_FrameList.size()) - 1;
+			m_CurrentFrameNumber = static_cast<int32_t>(m_FrameList.size()) - 1;
 		}
 	}
 

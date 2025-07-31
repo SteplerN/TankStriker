@@ -129,7 +129,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.ixx" />
+    <ClCompile Include="Button.ixx" />
+    <ClCompile Include="Construct.ixx" />
+    <ClCompile Include="ConstructIronWall.ixx" />
+    <ClCompile Include="ConstructPlayer.ixx" />
     <ClCompile Include="Core.ixx" />
+    <ClCompile Include="InitList.ixx" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Enums.ixx" />
     <ClCompile Include="FinishedAnimation.ixx" />
@@ -138,6 +143,7 @@
     <ClCompile Include="KillProgram.ixx" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Globals.ixx" />
+    <ClCompile Include="NormalTextureLoader.ixx" />
     <ClCompile Include="Player.ixx" />
     <ClCompile Include="Scene.ixx" />
     <ClCompile Include="sfml.ixx" />

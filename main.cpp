@@ -1,22 +1,7 @@
-import std;
-import sfml;
-
-import Usings;
-import Entity;
 import Core;
-import Scene;
-import Player;
-import IronWall;
-import FinishedAnimation;
-import HitBox;
-import Enums;
-
-using SceneCollection = std::vector<std::shared_ptr<Entity>>;
 
 int main()
-{
-	Core core;
-
+{/*
 	/////////////////////////// Sprite Initialization Block Start ///////////////////////////
 
 	// Blue Tank start
@@ -35,7 +20,7 @@ int main()
 	sf::Texture t_blue_tank_right;
 	t_blue_tank_right.loadFromFile("assets/statics/blue_tank/blue_tank_right.png");
 	auto blue_tank_right = std::make_shared<sf::Sprite>(t_blue_tank_right);
-
+	
 	FrameListCollection blue_tank_frame_list = 
 	{
 		blue_tank_forward,
@@ -43,7 +28,7 @@ int main()
 		blue_tank_left,
 		blue_tank_right
 	};
-
+	
 	HitBoxCollection blue_tank_hitbox_list =
 	{
 		std::vector<std::shared_ptr<HitBox>>
@@ -110,25 +95,34 @@ int main()
 	// Blue Square End
 
 	/////////////////////////// Sprite Initialization Block End ///////////////////////////
-
+	
+	
 	auto player = std::make_shared<Player>
-		(700.f, 700.f, std::move(blue_tank_frame_list), std::move(blue_tank_hitbox_list), int16_t(1));
+		(700.f, 700.f, std::move(blue_tank_frame_list), std::move(blue_tank_hitbox_list), 1);
 	
 	auto iron_wall_001 = std::make_shared<IronWall>
 		(500.f, 500.f, std::move(iron_wall_frame_list), int16_t(2));
 	auto blue_square = std::make_shared<FinishedAnimation>
-		(600.f, 600.f, std::move(blue_square_frame_list), std::move(blue_square_time_list), int16_t(15), false);
+		(600.f, 600.f, std::move(blue_square_frame_list), std::move(blue_square_time_list), 15, false);
 	
-
+	
 	auto entity_list = std::make_shared<SceneCollection>();
 	auto scene = std::make_shared<Scene>(std::move(entity_list));
 
-	scene->addToTheScene(std::move(blue_square));
-	scene->addToTheScene(std::move(player));
-	scene->addToTheScene(std::move(iron_wall_001));
+	//scene->addToTheScene(std::move(blue_square));
+	//scene->addToTheScene(std::move(player));
+	//scene->addToTheScene(std::move(iron_wall_001));
 
-	core.addTheScene(std::move(scene));
+	CoreCollection scenes = { scene };
+
+	Core core(std::move(scenes));
 	core.runTheGame();
 
+	return 0;*/
+
+	Core core;
+	core.initilaize();
+	core.runTheGame();
 	return 0;
+
 }
